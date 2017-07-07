@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-0
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 8080
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+     defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+
