@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 9001
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
 eureka:
   instance:
     hostname: localhost
-    port: 8080
+    port: 9000
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
