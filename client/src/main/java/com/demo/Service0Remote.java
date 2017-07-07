@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-@FeignClient("SERVICE-0")
+@FeignClient(value = "SERVICE-0",fallback = Service0RemoteHystrix.class)
 public interface Service0Remote
 {
    @RequestMapping(value = "/service")
