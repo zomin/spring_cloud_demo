@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    inetutils:
+      hostname: localhost
+      port: 9004
+    config:
+#      discovery:
+#        enabled: true
+#        service-id: spring-cloud-config-server
+      name: neo-config
+      profile: dev
+      uri: http://${spring.cloud.inetutils.hostname}:${spring.cloud.inetutils.port}/
+

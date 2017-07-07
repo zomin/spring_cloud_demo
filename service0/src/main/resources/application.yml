@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 
 spring:
   application:
@@ -8,11 +8,12 @@ spring:
 eureka:
   instance:
     hostname: localhost
-    port: 9000
+    port: 9001
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     service-url:
      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
 
 

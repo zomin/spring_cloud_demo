@@ -1,10 +1,9 @@
 package com.demo;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,13 +20,13 @@ public class Serivce0
 {
    Logger logger = Logger.getLogger(Serivce0.class);
 
-   @Autowired
-   private DiscoveryClient discoveryClient;
+   @Value("${neo.text:Hello World!}")
+   private String text;
 
    @GetMapping("/service")
    public String service(){
       logger.info("service0");
-      return "service0";
+      return "service0 reader config:"+text;
    }
 
    @GetMapping("/info")

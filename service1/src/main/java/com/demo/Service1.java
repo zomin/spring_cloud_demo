@@ -1,6 +1,7 @@
 package com.demo;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -21,9 +22,12 @@ public class Service1
 {
    Logger logger = Logger.getLogger(Service1.class);
 
+   @Value("${neo.text:Hello World!}")
+   private String text;
+
    @GetMapping("/service")
    public String service(){
-      return "service1";
+      return "service0 reader config:"+text;
    }
 
    @GetMapping("/info")
