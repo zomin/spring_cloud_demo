@@ -35,11 +35,9 @@ public class Client{
    public String uname(@PathVariable(value = "id") String id) {
       logger.info("Param:"+id);
       String res = "";
-      if("SERVICE_0".equals(id)){
-         res = service0Remote.service();
-      } else {
-         res = service1Remote.service();
-      }
+
+      res = service0Remote.service(id);
+
       return res;
    }
 

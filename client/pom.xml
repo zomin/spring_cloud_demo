@@ -11,6 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>client</artifactId>
+    <description>Spring Cloud Client,Eureka,Ribbon,Feign,Hystrix</description>
 
     <dependencies>
         <dependency>

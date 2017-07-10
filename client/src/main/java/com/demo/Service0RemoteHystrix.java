@@ -5,14 +5,15 @@
 package com.demo;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Component
 public class Service0RemoteHystrix implements Service0Remote
 {
    @Override
-   public String service()
+   public String service(@PathVariable(value = "id") String id)
    {
-      return "service0 is error";
+      return "service0 param:"+ id +" is error";
    }
 }

@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>cloud_config</artifactId>
-
+	<description>Spring Cloud Config Server</description>
 
 	<dependencies>
 		<dependency>

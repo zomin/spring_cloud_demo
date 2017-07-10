@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -25,9 +26,10 @@ public class Service1
    @Value("${neo.text:Hello World!}")
    private String text;
 
-   @GetMapping("/service")
-   public String service(){
-      return "service0 reader config:"+text;
+   @GetMapping("/service/{id}")
+   public String service(@PathVariable(value = "id") String id){
+      logger.info("service1");
+      return  "service1 param:"+ id +" reader config:"+text;
    }
 
    @GetMapping("/info")

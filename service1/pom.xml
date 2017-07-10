@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service1</artifactId>
+    <description>Spring Cloud Eureka Client</description>
 
     <dependencies>
         <dependency>

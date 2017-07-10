@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
+@ComponentScan("com.demo")
 public class Serivce0
 {
    Logger logger = Logger.getLogger(Serivce0.class);
@@ -23,10 +26,10 @@ public class Serivce0
    @Value("${neo.text:Hello World!}")
    private String text;
 
-   @GetMapping("/service")
-   public String service(){
+   @GetMapping("/service/{id}")
+   public String service(@PathVariable(value = "id") String id){
       logger.info("service0");
-      return "service0 reader config:"+text;
+      return "service0 param:"+ id +" reader config:"+text;
    }
 
    @GetMapping("/info")

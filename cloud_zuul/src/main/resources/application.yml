@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: cloud-zuul-server
+server:
+  port: 9008
+
+zuul:
+  routes:
+    hello:
+      path: /hello/**
+      url: http://www.baidu.com/
+    service-0:
+      path: /service/**
+      serverId: SERVICE-0
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 9001
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+     defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
